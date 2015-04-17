@@ -1,7 +1,7 @@
 package uk.co.littlemike.gradle.build.version
 
-interface BuildInfo {
-    String getBuildId()
-    Date getBuildTime()
-    String getRevision()
+class BuildInfo {
+    String buildId
+    Date buildTime
+    String revision
 }
