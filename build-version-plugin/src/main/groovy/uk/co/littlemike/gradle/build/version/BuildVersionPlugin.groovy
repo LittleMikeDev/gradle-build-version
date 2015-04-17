@@ -7,8 +7,6 @@ class BuildVersionPlugin implements Plugin<Project> {
 
     @Override
     void apply(Project project) {
-        project.task('hello') << {
-            println 'Hello world!'
-        }
+        project.extensions.add("buildInfo", new LocalBuildInfo())
     }
 }
