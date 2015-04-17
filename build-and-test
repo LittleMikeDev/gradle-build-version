@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+if ./gradlew --stacktrace assemble ; then
+    ./gradlew --stacktrace --settings-file=test-settings.gradle hello
+fi

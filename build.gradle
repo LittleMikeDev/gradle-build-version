@@ -1,0 +1,4 @@
+allprojects {
+    version = "0.1"
+    group = "uk.co.littlemike.build.version"
+}

@@ -1,0 +1,24 @@
+plugins {
+    id "com.gradle.plugin-publish" version "0.9.0"
+}
+
+apply plugin: 'groovy'
+
+dependencies {
+    compile gradleApi()
+    compile localGroovy()
+}
+
+pluginBundle {
+    website = 'https://github.com/LittleMikeDev/gradle-build-version'
+    vcsUrl = 'https://github.com/LittleMikeDev/gradle-build-version.git'
+    description = 'Plugin for accessing build information from various CI systems'
+    tags = ['build', 'version', 'json', 'CI']
+
+    plugins {
+        buildVersionPlugin {
+            id = 'uk.co.littlemike.build-version-plugin'
+            displayName = 'Gradle build version plugin'
+        }
+    }
+}

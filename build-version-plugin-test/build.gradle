@@ -1,0 +1,7 @@
+buildscript {
+    dependencies {
+        classpath project(':build-version-plugin')
+    }
+}
+
+apply plugin: 'uk.co.littlemike.build-version-plugin'
