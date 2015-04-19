@@ -1,6 +1,6 @@
 defaultTasks 'build'
 
 allprojects {
-    version = "0.2"
+    version = "0.3"
     group = "uk.co.littlemike.build.version"
 }
