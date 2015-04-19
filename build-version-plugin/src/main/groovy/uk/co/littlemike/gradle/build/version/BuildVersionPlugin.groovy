@@ -7,6 +7,6 @@ class BuildVersionPlugin implements Plugin<Project> {
 
     @Override
     void apply(Project project) {
-        project.extensions.add("buildInfo", new LocalBuildInfo())
+        project.extensions.add("buildInfo", BuildEnvironment.getBuildInfo())
     }
 }
