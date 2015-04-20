@@ -8,6 +8,7 @@ Supported CI systems
 --------------------
 
 * TeamCity
+* Thoughtworks GO
 
 How to use
 ----------

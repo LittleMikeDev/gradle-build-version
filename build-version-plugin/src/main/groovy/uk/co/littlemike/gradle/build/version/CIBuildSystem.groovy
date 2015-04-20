@@ -1,7 +1,8 @@
 package uk.co.littlemike.gradle.build.version
 
 enum CIBuildSystem {
-    TeamCity("BUILD_NUMBER", "BUILD_VCS_NUMBER")
+    TeamCity("BUILD_NUMBER", "BUILD_VCS_NUMBER"),
+    GO("GO_PIPELINE_LABEL", "GO_REVISION")
 
     private final String buildIdProperty
     private final String revisionProperty

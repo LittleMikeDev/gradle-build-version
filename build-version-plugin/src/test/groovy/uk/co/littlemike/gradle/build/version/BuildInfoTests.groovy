@@ -59,4 +59,21 @@ class BuildInfoTests {
         assertThat(buildInfo.buildId, equalTo("A build"))
         assertThat(buildInfo.revision, equalTo("A revision"))
     }
+
+    @Test
+    void buildInfoShouldContainGoBuildDetails() {
+        // Given
+        BuildEnvironment.overrideEnvironmentVariables([
+                GO_PIPELINE_LABEL : "A GO build",
+                GO_REVISION : "A GO material revision"
+        ])
+
+        // When
+        project.apply(plugin: 'uk.co.littlemike.build-version-plugin')
+
+        // Then
+        BuildInfo buildInfo = project.buildInfo
+        assertThat(buildInfo.buildId, equalTo("A GO build"))
+        assertThat(buildInfo.revision, equalTo("A GO material revision"))
+    }
 }
