@@ -12,7 +12,7 @@ Supported CI systems
 Requirements
 ------------
 
-Compiled for use with Java 8+
+Compiled for use with Java 6+
 
 How to use
 ----------

@@ -4,6 +4,8 @@ plugins {
 
 apply plugin: 'groovy'
 
+sourceCompatibility = 1.6
+
 dependencies {
     compile gradleApi()
     compile localGroovy()

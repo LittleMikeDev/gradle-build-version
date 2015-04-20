@@ -3,10 +3,10 @@ package uk.co.littlemike.gradle.build.version
 class BuildEnvironment {
 
     private static Map<String, String> environmentVariables = new LinkedHashMap<>(System.getenv())
-    private static Optional<Date> currentTimeOverride = Optional.empty()
+    private static Date currentTimeOverride = null
 
     static void overrideCurrentTime(Date date) {
-        currentTimeOverride = Optional.of(date)
+        currentTimeOverride = date
     }
 
     static void overrideEnvironmentVariables(Map<String, String> variableOverrides) {
@@ -19,7 +19,14 @@ class BuildEnvironment {
 
     static BuildInfo getBuildInfo() {
         def info = CIBuildSystem.getBuildSystemInfo(environmentVariables)
-        info.buildTime = currentTimeOverride.orElse(new Date())
+        info.buildTime = getTime()
         info
+    }
+
+    private static Date getTime() {
+        if (currentTimeOverride != null) {
+            return currentTimeOverride
+        }
+        return new Date()
     }
 }
