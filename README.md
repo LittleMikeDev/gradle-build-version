@@ -9,21 +9,10 @@ Supported CI systems
 
 * TeamCity
 
-Requirements
-------------
-
-Compiled for use with Java 6+
-
 How to use
 ----------
 
-Apply the plugin (Gradle 2.1+)
-
-```
-plugins {
-    id "uk.co.littlemike.build-version-plugin" version "0.3"
-}
-```
+[Apply the plugin](https://plugins.gradle.org/plugin/uk.co.littlemike.build-version-plugin)
 
 CI build information is now available on the project model as below
 
