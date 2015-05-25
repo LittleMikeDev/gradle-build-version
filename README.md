@@ -1,6 +1,9 @@
 Gradle build version plugin
 ===========================
 
+[![Build Status](https://travis-ci.org/LittleMikeDev/gradle-build-version.svg?branch=master)](https://travis-ci.org/LittleMikeDev/gradle-build-version)
+[![codecov.io](http://codecov.io/github/LittleMikeDev/gradle-build-version/coverage.svg?branch=master)](http://codecov.io/github/LittleMikeDev/gradle-build-version?branch=master)
+
 This plugin provides information from the build system. This is not normally possible without coupling your build to the
 CI build system being used, as different build systems expose these properties using different environment variables.
 
