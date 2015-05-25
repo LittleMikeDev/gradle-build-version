@@ -3,6 +3,11 @@ plugins {
 }
 
 apply plugin: 'groovy'
+apply plugin: "jacoco"
+
+repositories {
+    jcenter()
+}
 
 sourceCompatibility = 1.6
 
@@ -22,5 +27,11 @@ pluginBundle {
             id = 'uk.co.littlemike.build-version-plugin'
             displayName = 'Gradle build version plugin'
         }
+    }
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
     }
 }

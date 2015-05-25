@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-if ./gradlew --stacktrace ; then
+if ./gradlew --stacktrace build jacocoTestReport; then
     ./gradlew --stacktrace --settings-file=test-settings.gradle printBuildInfo
 fi
