@@ -30,6 +30,24 @@ pluginBundle {
     }
 }
 
+/**
+ * Hack to allow plugin publish key to be specified as an environment variable in Travis-CI
+ * Taken from: https://discuss.gradle.org/t/add-apikey-and-apisecret-to-pluginbundle-extension-for-plugin-publish-plugin/8636/4
+ * This can be removed when https://issues.gradle.org/browse/GRADLE-3273 is resolved
+ */
+task setupPluginUpload << {
+    def key = System.getenv('gradlePublishKey')
+    def secret = System.getenv('gradlePublishSecret')
+
+    if( !key || !secret) {
+        throw new RuntimeException("gradlePublishKey and/or gradlePublishSecret are not defined environment variables")
+    }
+
+    System.properties.setProperty("gradle.publish.key", key)
+    System.properties.setProperty("gradle.publish.secret", secret)
+}
+tasks.publishPlugins.dependsOn tasks.setupPluginUpload
+
 jacocoTestReport {
     reports {
         xml.enabled true
