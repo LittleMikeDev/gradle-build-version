@@ -10,6 +10,7 @@ CI build system being used, as different build systems expose these properties u
 Supported CI systems
 --------------------
 
+* Travis-CI
 * TeamCity
 * Thoughtworks GO
 

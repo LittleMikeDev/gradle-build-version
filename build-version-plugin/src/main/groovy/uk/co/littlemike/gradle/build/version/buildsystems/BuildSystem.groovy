@@ -5,6 +5,7 @@ import uk.co.littlemike.gradle.build.version.BuildInfo
 
 abstract class BuildSystem {
     private static def buildSystems = [
+            new Travis(),
             new TeamCity(),
             new Go(),
             new LocalBuild()
