@@ -3,7 +3,7 @@ package uk.co.littlemike.gradle.build.version.buildsystems
 import uk.co.littlemike.gradle.build.version.BuildEnvironment
 import uk.co.littlemike.gradle.build.version.BuildInfo
 
-class TeamCityBuildInfo implements BuildInfo {
+class TeamCityBuildInfo extends BuildInfo {
     final Date buildTime
     final String buildId
     final String revision
