@@ -61,4 +61,26 @@ class GoCITests extends AbstractCITest {
         BuildInfo buildInfo = project.buildInfo
         assert buildInfo.buildLink == "http://gourl.com/go/pipelines/my-pipeline/6/build-stuff/2"
     }
+
+    @Test
+    void canOverrideServerUrl() {
+        // Given
+        environment.variables.putAll([
+                GO_SERVER_URL : "http://gourl.com/go/",
+                GO_PIPELINE_NAME : "my-pipeline",
+                GO_PIPELINE_COUNTER : "6",
+                GO_STAGE_NAME : "build-stuff",
+                GO_STAGE_COUNTER : "2"
+        ])
+        project.apply(plugin: 'uk.co.littlemike.build-version-plugin')
+
+        // When
+        project.buildInfo {
+            server = 'http://a-different-go-url.com/go/'
+        }
+
+        // Then
+        BuildInfo buildInfo = project.buildInfo
+        assert buildInfo.buildLink == "http://a-different-go-url.com/go/pipelines/my-pipeline/6/build-stuff/2"
+    }
 }

@@ -5,16 +5,17 @@ import uk.co.littlemike.gradle.build.version.BuildInfo
 
 class GoBuildInfo extends BuildInfo {
     final Date buildTime
-    final BuildEnvironment environment;
+    final BuildEnvironment environment
+    String server
 
     GoBuildInfo(BuildEnvironment environment) {
         buildTime = environment.currentTime
-        this.environment = environment;
+        this.environment = environment
+        server = environment.variables.GO_SERVER_URL
     }
 
     @Override
     String getBuildLink() {
-        def server = environment.variables.GO_SERVER_URL
         def pipeline = environment.variables.GO_PIPELINE_NAME
         def pipelineCount = environment.variables.GO_PIPELINE_COUNTER
         def stage = environment.variables.GO_STAGE_NAME
