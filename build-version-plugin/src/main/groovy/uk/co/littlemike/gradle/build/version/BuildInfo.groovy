@@ -5,4 +5,5 @@ abstract class BuildInfo {
     abstract Date getBuildTime()
     abstract String getRevision()
     String getBuildLink() { "" }
+    String server = ""
 }

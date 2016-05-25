@@ -30,4 +30,16 @@ abstract class AbstractCITest {
         assert buildInfo != null
         assert buildInfo.buildTime == buildTime
     }
+
+    @Test
+    void canSetServerRegardlessOfCiSystem() {
+        // Given
+        project.apply(plugin: 'uk.co.littlemike.build-version-plugin')
+
+        // When
+        project.buildInfo.server = 'http://my-ci-server.com'
+
+        // Then
+        // no errors
+    }
 }

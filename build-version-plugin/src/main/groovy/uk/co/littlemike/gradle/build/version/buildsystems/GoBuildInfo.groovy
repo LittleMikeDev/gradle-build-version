@@ -6,7 +6,6 @@ import uk.co.littlemike.gradle.build.version.BuildInfo
 class GoBuildInfo extends BuildInfo {
     final Date buildTime
     final BuildEnvironment environment
-    String server
 
     GoBuildInfo(BuildEnvironment environment) {
         buildTime = environment.currentTime
