@@ -1,9 +1,5 @@
 package uk.co.littlemike.gradle.build.version
-
 import org.junit.Test
-
-import static org.hamcrest.CoreMatchers.equalTo
-import static org.hamcrest.MatcherAssert.assertThat
 
 class LocalBuildTests extends AbstractCITest {
 
@@ -14,7 +10,8 @@ class LocalBuildTests extends AbstractCITest {
 
         // Then
         BuildInfo buildInfo = project.buildInfo
-        assertThat(buildInfo.buildId, equalTo("Local build"))
-        assertThat(buildInfo.revision, equalTo("Local copy"))
+        assert buildInfo.buildId == "Local build"
+        assert buildInfo.revision == "Local copy"
+        assert buildInfo.triggeredBy == "Local user"
     }
 }

@@ -83,4 +83,19 @@ class GoCITests extends AbstractCITest {
         BuildInfo buildInfo = project.buildInfo
         assert buildInfo.buildLink == "http://a-different-go-url.com/go/pipelines/my-pipeline/6/build-stuff/2"
     }
+
+    @Test
+    void buildInfoContainsTriggeredBy() {
+        // Given
+        environment.variables.putAll([
+                GO_TRIGGER_USER: 'A person'
+        ])
+
+        // When
+        project.apply(plugin: 'uk.co.littlemike.build-version-plugin')
+
+        // Then
+        BuildInfo buildInfo = project.buildInfo
+        assert buildInfo.triggeredBy == 'A person'
+    }
 }

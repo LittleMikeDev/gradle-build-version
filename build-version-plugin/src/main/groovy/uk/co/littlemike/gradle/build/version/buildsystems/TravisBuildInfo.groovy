@@ -7,6 +7,7 @@ class TravisBuildInfo extends BuildInfo {
     final Date buildTime
     final String buildId
     final String revision
+    final String triggeredBy = ""
 
     def TravisBuildInfo(BuildEnvironment environment) {
         buildTime = environment.currentTime

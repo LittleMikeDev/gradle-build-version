@@ -31,4 +31,9 @@ class GoBuildInfo extends BuildInfo {
             it.key.startsWith "GO_REVISION"
         }?.value
     }
+
+    @Override
+    String getTriggeredBy() {
+        return environment.variables.GO_TRIGGER_USER
+    }
 }

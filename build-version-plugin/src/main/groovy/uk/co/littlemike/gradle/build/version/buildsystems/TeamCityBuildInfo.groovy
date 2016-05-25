@@ -7,6 +7,7 @@ class TeamCityBuildInfo extends BuildInfo {
     final Date buildTime
     final String buildId
     final String revision
+    final String triggeredBy = ""
 
     TeamCityBuildInfo(BuildEnvironment environment) {
         buildTime = environment.currentTime
