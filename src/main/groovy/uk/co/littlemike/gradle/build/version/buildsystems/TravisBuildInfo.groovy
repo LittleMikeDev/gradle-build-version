@@ -9,7 +9,7 @@ class TravisBuildInfo extends BuildInfo {
     final String revision
     final String triggeredBy = ""
 
-    def TravisBuildInfo(BuildEnvironment environment) {
+    TravisBuildInfo(BuildEnvironment environment) {
         buildTime = environment.currentTime
         buildId = environment.variables.TRAVIS_BUILD_NUMBER
         revision = environment.variables.TRAVIS_COMMIT

@@ -8,6 +8,7 @@ abstract class BuildSystem {
             new Travis(),
             new TeamCity(),
             new Go(),
+            new CircleCi(),
             new LocalBuild()
     ]
 
