@@ -1,5 +1,6 @@
 plugins {
-    id "com.gradle.plugin-publish" version "0.9.0"
+    id "com.gradle.plugin-publish" version "0.10.1"
+    id "java-gradle-plugin"
 }
 
 apply plugin: 'groovy'
@@ -16,10 +17,18 @@ group = "uk.co.littlemike.build.version"
 sourceCompatibility = 1.6
 
 dependencies {
-    compile gradleApi()
     compile localGroovy()
 
     testCompile "junit:junit:4.12"
+}
+
+gradlePlugin {
+    plugins {
+        buildVersionPlugin {
+            id = 'uk.co.littlemike.build-version-plugin'
+            implementationClass = 'uk.co.littlemike.gradle.build.version.BuildVersionPlugin'
+        }
+    }
 }
 
 pluginBundle {
@@ -30,7 +39,6 @@ pluginBundle {
 
     plugins {
         buildVersionPlugin {
-            id = 'uk.co.littlemike.build-version-plugin'
             displayName = 'Gradle build version plugin'
         }
     }
