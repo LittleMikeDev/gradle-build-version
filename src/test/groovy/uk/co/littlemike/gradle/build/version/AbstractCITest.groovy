@@ -23,7 +23,7 @@ abstract class AbstractCITest {
         environment.currentTime = buildTime
 
         // When
-        project.apply(plugin: 'uk.co.littlemike.build-version-plugin')
+        project.apply(plugin: BuildVersionPlugin)
 
         // Then
         BuildInfo buildInfo = project.buildInfo
@@ -34,7 +34,7 @@ abstract class AbstractCITest {
     @Test
     void canSetServerRegardlessOfCiSystem() {
         // Given
-        project.apply(plugin: 'uk.co.littlemike.build-version-plugin')
+        project.apply(plugin: BuildVersionPlugin)
 
         // When
         project.buildInfo.server = 'http://my-ci-server.com'

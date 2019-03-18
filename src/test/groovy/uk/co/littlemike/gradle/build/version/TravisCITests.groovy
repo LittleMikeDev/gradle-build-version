@@ -19,7 +19,7 @@ class TravisCITests extends AbstractCITest {
         ])
 
         // When
-        project.apply(plugin: 'uk.co.littlemike.build-version-plugin')
+        project.apply(plugin: BuildVersionPlugin)
 
         // Then
         BuildInfo buildInfo = project.buildInfo

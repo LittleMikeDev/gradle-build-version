@@ -6,7 +6,7 @@ class LocalBuildTests extends AbstractCITest {
     @Test
     void buildInfoShouldContainLocalBuildDetailsIfNoCIEnvironmentVariablesPresent() {
         // When
-        project.apply(plugin: 'uk.co.littlemike.build-version-plugin')
+        project.apply(plugin: BuildVersionPlugin)
 
         // Then
         BuildInfo buildInfo = project.buildInfo

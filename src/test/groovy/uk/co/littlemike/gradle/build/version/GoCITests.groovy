@@ -19,7 +19,7 @@ class GoCITests extends AbstractCITest {
         ])
 
         // When
-        project.apply(plugin: 'uk.co.littlemike.build-version-plugin')
+        project.apply(plugin: BuildVersionPlugin)
 
         // Then
         BuildInfo buildInfo = project.buildInfo
@@ -36,7 +36,7 @@ class GoCITests extends AbstractCITest {
         ])
 
         // When
-        project.apply(plugin: 'uk.co.littlemike.build-version-plugin')
+        project.apply(plugin: BuildVersionPlugin)
 
         // Then
         BuildInfo buildInfo = project.buildInfo
@@ -55,7 +55,7 @@ class GoCITests extends AbstractCITest {
         ])
 
         // When
-        project.apply(plugin: 'uk.co.littlemike.build-version-plugin')
+        project.apply(plugin: BuildVersionPlugin)
 
         // Then
         BuildInfo buildInfo = project.buildInfo
@@ -72,7 +72,7 @@ class GoCITests extends AbstractCITest {
                 GO_STAGE_NAME : "build-stuff",
                 GO_STAGE_COUNTER : "2"
         ])
-        project.apply(plugin: 'uk.co.littlemike.build-version-plugin')
+        project.apply(plugin: BuildVersionPlugin)
 
         // When
         project.buildInfo {
@@ -92,7 +92,7 @@ class GoCITests extends AbstractCITest {
         ])
 
         // When
-        project.apply(plugin: 'uk.co.littlemike.build-version-plugin')
+        project.apply(plugin: BuildVersionPlugin)
 
         // Then
         BuildInfo buildInfo = project.buildInfo
