@@ -3,8 +3,8 @@ jdk:
     - openjdk11
 
 script:
-    - ./gradlew
+    - ./gradlew --stacktrace --info
 
 after_success:
     - bash <(curl -s https://codecov.io/bash)
-    - ./gradlew publishPlugins
+    - ./gradlew --stacktrace --info publishPlugins
