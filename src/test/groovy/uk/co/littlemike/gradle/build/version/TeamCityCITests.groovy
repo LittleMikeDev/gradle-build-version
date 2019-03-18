@@ -3,7 +3,7 @@ package uk.co.littlemike.gradle.build.version
 import org.junit.Before
 import org.junit.Test
 
-class TeamcityCITests extends AbstractCITest {
+class TeamCityCITests extends AbstractCITest {
 
     @Before
     void ciAgentIsTeamcity() {

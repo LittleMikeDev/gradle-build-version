@@ -1,6 +1,63 @@
-defaultTasks 'build'
+plugins {
+    id "com.gradle.plugin-publish" version "0.9.0"
+}
 
-allprojects {
-    version = "0.8"
-    group = "uk.co.littlemike.build.version"
+apply plugin: 'groovy'
+apply plugin: "jacoco"
+
+repositories {
+    jcenter()
+}
+
+defaultTasks 'build', 'jacocoTestReport'
+version = "0.8"
+group = "uk.co.littlemike.build.version"
+
+sourceCompatibility = 1.6
+
+dependencies {
+    compile gradleApi()
+    compile localGroovy()
+
+    testCompile "junit:junit:4.12"
+}
+
+pluginBundle {
+    website = 'https://github.com/LittleMikeDev/gradle-build-version'
+    vcsUrl = 'https://github.com/LittleMikeDev/gradle-build-version.git'
+    description = 'Plugin for accessing build information from various CI systems'
+    tags = ['build', 'version', 'json', 'CI']
+
+    plugins {
+        buildVersionPlugin {
+            id = 'uk.co.littlemike.build-version-plugin'
+            displayName = 'Gradle build version plugin'
+        }
+    }
+}
+
+/**
+ * Hack to allow plugin publish key to be specified as an environment variable in Travis-CI
+ * Taken from: https://discuss.gradle.org/t/add-apikey-and-apisecret-to-pluginbundle-extension-for-plugin-publish-plugin/8636/4
+ * This can be removed when https://issues.gradle.org/browse/GRADLE-3273 is resolved
+ */
+task('setupPluginUpload') {
+    doLast {
+        def key = System.getenv('gradlePublishKey')
+        def secret = System.getenv('gradlePublishSecret')
+
+        if (!key || !secret) {
+            throw new RuntimeException("gradlePublishKey and/or gradlePublishSecret are not defined environment variables")
+        }
+
+        System.properties.setProperty("gradle.publish.key", key)
+        System.properties.setProperty("gradle.publish.secret", secret)
+    }
+}
+tasks.publishPlugins.dependsOn tasks.setupPluginUpload
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+    }
 }

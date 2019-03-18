@@ -3,7 +3,7 @@ jdk:
     - openjdk6
 
 script:
-    - ./build-and-test
+    - ./gradlew
 
 after_success:
     - bash <(curl -s https://codecov.io/bash)
